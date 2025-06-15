@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Task Management App</h1>
+  </header>
+
+  <main>
+   <div class="filters">
+  <button class="filter-btn active" onclick="filterTasks('All', this)">All</button>
+  <button class="filter-btn" onclick="filterTasks('Pending', this)">Pending</button>
+  <button class="filter-btn" onclick="filterTasks('In Progress', this)">In Progress</button>
+  <button class="filter-btn" onclick="filterTasks('Completed', this)">Completed</button>
+</div>
+
+    <div id="task-container" class="task-container"></div>
+  </main>
+
+  <!-- Floating Add Button -->
+  <button class="fab" onclick="openForm()">+</button>
+
+  <!-- Modal Form -->
+  <div id="todo-form-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2>Add Task</h2>
+      <form id="todo-form">
+        <label for="taskName">Task Name</label>
+        <input type="text" id="taskName" required />
+
+        <label for="status">Status</label>
+        <select id="status" required>
+          <option value="">Select status</option>
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+        </select>
+
+        <label for="deadline">Deadline</label>
+        <input type="date" id="deadline" required />
+
+        <button type="submit" class="btn-submit">Add Task</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
